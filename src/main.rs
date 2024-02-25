@@ -18,7 +18,7 @@ fn main() {
         Err(e) => panic!("Failed to initialize watcher: {:?}", e),
     };
 
-    let path = Path::new("./test");
+    let path = Path::new("/home/chunhou/Dev/rust/file-tagger/test");
 
     // Watch the directory for changes
     if let Err(e) = watcher.watch(path, RecursiveMode::Recursive) {
@@ -39,7 +39,7 @@ fn main() {
                         match e.kind {
 
                             EventKind::Create(CreateKind::File) => {
-                                println!("some file created");
+                                println!("file {:?} created", e.paths);
                             },
 
                             EventKind::Remove(RemoveKind::File) => {
