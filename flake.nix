@@ -34,6 +34,7 @@
       packages = with inputs.dream2nix.inputs.nixpkgs.legacyPackages.${system}; [
         rustup
         cargo-cross
+        protobuf3_20
       ];
     };
   };
