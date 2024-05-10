@@ -35,6 +35,7 @@
         rustup
         cargo-cross
         protobuf3_20
+        diesel-cli
       ];
     };
   };
