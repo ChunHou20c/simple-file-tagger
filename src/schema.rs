@@ -10,6 +10,14 @@ diesel::table! {
 }
 
 diesel::table! {
+    tag_records (id) {
+        id -> Integer,
+        file_id -> Integer,
+        tag_id -> Integer,
+    }
+}
+
+diesel::table! {
     tags (id) {
         id -> Integer,
         tag_name -> Text,
@@ -17,7 +25,11 @@ diesel::table! {
     }
 }
 
+diesel::joinable!(tag_records -> file_records (file_id));
+diesel::joinable!(tag_records -> tags (tag_id));
+
 diesel::allow_tables_to_appear_in_same_query!(
     file_records,
+    tag_records,
     tags,
 );
