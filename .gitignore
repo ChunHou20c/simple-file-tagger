@@ -1,2 +1,4 @@
 /target
 /test
+.env
+*.sqlite3
