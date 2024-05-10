@@ -8,3 +8,16 @@ diesel::table! {
         updated_at -> Nullable<Timestamp>,
     }
 }
+
+diesel::table! {
+    tags (id) {
+        id -> Integer,
+        tag_name -> Text,
+        description -> Nullable<Text>,
+    }
+}
+
+diesel::allow_tables_to_appear_in_same_query!(
+    file_records,
+    tags,
+);
